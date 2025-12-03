@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                echo 'Pulling latest code from repository...'
+                git url: 'https://github.com/neerajk555/Declarative-Pipeline-Lab.git', branch: 'main'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building the project...'
@@ -23,4 +29,3 @@ pipeline {
         }
     }
 }
-
